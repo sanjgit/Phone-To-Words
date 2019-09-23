@@ -202,11 +202,13 @@ function phone_To_Words(list) {
       else if (matchedLetters.length > 1 & (splitArray.indexOf(matchedLetters) != -1)) {
         searchedWords.push(matchedLetters);
       }
-      if (searchedWords.join('').length == wrd.length && phoneWordMap.indexOf(searchedWords.join('-').toUpperCase()) == -1)
+      if (searchedWords.join('').length == wrd.length && !/\d{2}/g.test(searchedWords.join('') ) && phoneWordMap.indexOf(searchedWords.join('-').toUpperCase()) == -1)
         phoneWordMap.push(searchedWords.join('-').toUpperCase());
     }
   }
-
+ // console.log(uniqueWords);
+ // console.log(matchingWords);
+ // console.log(arrangedArrayList);
   if (phoneWordMap.length > 0) {
     console.log(phoneWordMap.join(','));
   }
